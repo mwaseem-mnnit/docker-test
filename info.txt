@@ -1,0 +1,25 @@
+copy from local to container
+
+build image:
+	docker build --tag=vcms .
+
+run image:
+	docker run -p 8082:8082 -p 8083:8083 vcms
+
+run command on docker:
+	docker exec -it 2a528dde7887 /bin/bash
+
+copy from local to docker:
+	docker cp /Users/mohd.waseem/Desktop/workspace/rivigo-workspace/vendor-contract-management-system/vendor-contract-service/target/classes/com/rivigo/compass/vendorcontract/controller/HealthController.class 2a528dde7887:/root/vcms/BOOT-INF/classes/com/rivigo/compass/vendorcontract/controller/
+	docker cp /Users/mohd.waseem/Desktop/workspace/rivigo-workspace/vendor-contract-management-system/vendor-contract-service/target/classes/com/rivigo/compass/vendorcontract/controller/VendorContractController.class 2a528dde7887:/root/vcms/BOOT-INF/classes/com/rivigo/compass/vendorcontract/controller/
+
+run docker continously on startup:
+    CMD tail -f /dev/null
+
+
+	java -Dserver.port=8080 -Dspring.profiles.active=local -jar vendor-contract-service/target/vendor-contract-backend.jar 
+
+
+	 stat -f "%m%t%Sm %N" /tmp/*
+
+	 stat -f "Access (atime): %Sa%nModify (mtime): %Sm%nChange (ctime): %Sc%nBirth  (Btime): %SB" file.txt
